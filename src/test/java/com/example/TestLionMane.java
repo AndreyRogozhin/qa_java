@@ -1,4 +1,3 @@
-
 package com.example;
 
 import org.junit.Assert;
@@ -17,28 +16,22 @@ import static org.junit.Assert.assertEquals;
 @RunWith(Parameterized.class)
 public class TestLionMane {
 
-    @Before
-    public void init() {
-        MockitoAnnotations.initMocks(this);
-    }
-
-    Feline feline;
-
     @Parameterized.Parameter(0)
     public String gender;
     @Parameterized.Parameter(1)
     public boolean hasManeExpectedResult;
+    Feline feline;
 
     @Parameterized.Parameters(name = "Тест {index} ")
     public static Object[][] data() {
-        return new Object[][]{
-                {"Самец", true },
-                {"Самка", false},
-
-
+        return new Object[][]{{"Самец", true}, {"Самка", false},
         };
     }
 
+    @Before
+    public void init() {
+        MockitoAnnotations.initMocks(this);
+    }
 
     @Test
     public void runTestHasMane() throws Exception {

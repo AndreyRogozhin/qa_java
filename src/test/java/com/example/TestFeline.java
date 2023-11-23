@@ -1,4 +1,3 @@
-
 package com.example;
 
 import org.junit.Assert;
@@ -14,7 +13,6 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
-
 @RunWith(MockitoJUnitRunner.class)
 public class TestFeline {
 
@@ -22,8 +20,6 @@ public class TestFeline {
     public void runTestGetFamily() {
         Feline feline = new Feline();
         assertEquals("Неверный ответ!", "Кошачьи", feline.getFamily());
-
-
     }
 
     @Test
@@ -33,10 +29,7 @@ public class TestFeline {
 
         Mockito.when(felineSpy.eatMeat()).thenReturn(List.of("Животные", "Птицы", "Рыба"));
         assertEquals("Не тот ответ!", List.of("Животные", "Птицы", "Рыба"), felineSpy.eatMeat());
-
     }
-
-
 
 }
 

@@ -1,4 +1,3 @@
-
 package com.example;
 
 import org.junit.Assert;
@@ -13,16 +12,24 @@ import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 
-public class TestLionKittens {
+public class TestLion {
 
     @Before
     public void init() {
         MockitoAnnotations.initMocks(this);
     }
 
+
     @Test
-    public void testGetLionKittens() throws Exception {
+    public void runTestLionGetException() {
+        Feline feline = new Feline();
+        assertThrows("Используйте допустимые значения пола животного - самец или самка", Exception.class, () -> new Lion("Львенок", feline));
+    }
+
+    @Test
+    public void testLionGetKittens() throws Exception {
         Feline feline = new Feline();
         Feline felineSpy = Mockito.spy(feline);
 
@@ -46,6 +53,5 @@ public class TestLionKittens {
         Mockito.verify(felineSpy, Mockito.times(1)).getFood("Хищник");
 
     }
-
 }
 

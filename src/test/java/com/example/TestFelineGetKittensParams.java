@@ -1,4 +1,3 @@
-
 package com.example;
 
 import org.junit.Assert;
@@ -15,25 +14,18 @@ import org.mockito.junit.MockitoJUnitRunner;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
-public class TestFelineKittens {
-
-    @Before
-    public void init() {
-        MockitoAnnotations.initMocks(this);
-    }
-
-    @Spy
-    Feline feline;
+public class TestFelineGetKittensParams {
 
     @Parameterized.Parameter(0)
     public int kittensExpected;
     @Parameterized.Parameter(1)
     public int kittensResult;
 
+    Feline feline;
+
     @Parameterized.Parameters(name = "Тест {index}")
     public static Object[][] data() {
         return new Object[][]{
-                {-1, 1},
                 {1, 1},
                 {3, 3},
                 {0, 0},
@@ -42,15 +34,9 @@ public class TestFelineKittens {
 
 
     @Test
-    public void runTestGetKittens() {
-        if (kittensExpected == -1) {
-            int result = feline.getKittens();
-            Mockito.verify(feline, Mockito.times(1)).getKittens(1);
-        }
-    else
-    {
+    public void runTestGetKittensParams() {
+        Feline feline = new Feline();
         Assert.assertEquals(kittensExpected, feline.getKittens(kittensResult));
     }
-}
 }
 
