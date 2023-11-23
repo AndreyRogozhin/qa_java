@@ -1,8 +1,10 @@
 # qa_java
 QA Java Project
 
-Используемые зависимости:
+Used dependencies:
 
 JUnit 4
+
 Mockito
+
 Jacoco Maven Plugin
